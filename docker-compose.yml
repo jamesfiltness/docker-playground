@@ -1,0 +1,9 @@
+version: '3.0'
+services:
+  web:
+    build:
+      # Either a path to a directory containing a Dockerfile, or a url to a git repository
+      context: .
+      dockerfile: Dockerfile
+    ports:
+     - 3000:3000
