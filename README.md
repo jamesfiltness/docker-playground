@@ -4,21 +4,16 @@ The setup in this repo uses Docker Compose to orchestrate running a Node app beh
 
 (There are npm scripts defined for most of commands below)
 
-### Run container from Dockerfile directly
+### Run the app on Docker in development mode
+Run `npm run docker:start:dev`. This starts Docker up using `docker-compose.dev.yml`. The node app (`index.js`)
+is mounted as a volume inside the container and is reloaded by nodemon when a file is changed.
 
-Build an image:
-`docker build -f Dockerfile -t nodeapp .`
+### Run the app on Docker in production mode
+Todo...
 
-Run an image (4000 is the host port, 3000 is the container port):
-`docker run -p 4000:3000 nodeapp`
+## Useful commands:
 
-### Run the container via docker-compose
-`docker-compose up`
-
-Run container and force a Build
-`docker-compose up --build`
-
-## SSH on to docker container:
+### SSH on to docker container:
 1. `docker ps` - copy the `CONTAINER ID`
 2. `docker exec -it CONTAINERIDHERE /bin/bash`
 

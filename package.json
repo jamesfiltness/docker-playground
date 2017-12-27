@@ -8,8 +8,8 @@
   "license": "ISC",
   "scripts": {
     "start": "nodemon .",
-    "docker:start": "docker-compose -f docker-compose.dev.yml up",
-    "docker:start-build": "docker-compose -f docker-compose.dev.yml up --build",
+    "docker:start:dev": "docker-compose -f docker-compose.dev.yml up",
+    "docker:start:build-dev": "docker-compose -f docker-compose.dev.yml up --build",
     "docker:nuke": "docker rm $(docker ps -a -q) && docker rmi $(docker images -q)"
   },
   "dependencies": {
