@@ -1,9 +1,15 @@
 version: '3.0'
 services:
-  web:
+  nodeapp:
+    # If a context is not provided Docker looks for a file named "Dockerfile"
     build:
-      # Either a path to a directory containing a Dockerfile, or a url to a git repository
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
     ports:
-     - 3000:3000
+      - 8080:8080
+    depends_on:
+      - nodeapp

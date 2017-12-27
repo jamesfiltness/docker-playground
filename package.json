@@ -6,6 +6,11 @@
   "repository": "https://github.com/jamesfiltness/docker-playground",
   "author": "James Filtness",
   "license": "ISC",
+  "scripts": {
+    "start": "docker-compose up",
+    "start:build": "docker-compose up --build",
+    "nuke": "docker rm $(docker ps -a -q) && docker rmi $(docker images -q)"
+  },
   "dependencies": {
     "express": "^4.16.2"
   }
