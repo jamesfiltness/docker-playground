@@ -7,11 +7,15 @@
   "author": "James Filtness",
   "license": "ISC",
   "scripts": {
-    "start": "docker-compose up",
-    "start:build": "docker-compose up --build",
-    "nuke": "docker rm $(docker ps -a -q) && docker rmi $(docker images -q)"
+    "start": "nodemon .",
+    "docker:start": "docker-compose -f docker-compose.dev.yml up",
+    "docker:start-build": "docker-compose -f docker-compose.dev.yml up --build",
+    "docker:nuke": "docker rm $(docker ps -a -q) && docker rmi $(docker images -q)"
   },
   "dependencies": {
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.3"
   }
 }

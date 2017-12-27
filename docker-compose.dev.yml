@@ -1,10 +1,12 @@
 version: '3.0'
 services:
   nodeapp:
-    # If a context is not provided Docker looks for a file named "Dockerfile"
     build:
       context: .
       dockerfile: Dockerfile.dev
+    volumes:
+      # Mount the node app as a volume so local changes are reflected in the container
+      - ./index.js:/app/index.js
   nginx:
     build:
       context: .

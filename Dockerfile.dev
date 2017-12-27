@@ -12,13 +12,16 @@ ENV NODE_ENV=${NODE_ENV}
 WORKDIR /app
 
 # Copy the required files into the container at /app
-COPY ["index.js", "package.json", "./"]
+# Only need to add package.json in dev mode as the node app is mounted
+# as a volume with Docker Compose
+COPY ["package.json", "./"]
 
 # Install node dependencies
+# http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/
 RUN npm install
 
 # Run node app when the container launches
-CMD ["node", "."]
+CMD ["npm", "start"]
 
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
